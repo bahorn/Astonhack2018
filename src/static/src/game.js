@@ -24,6 +24,12 @@ let state = {
     dinosaurs: 0,
     unicorns: 0,
   },
+  point: {
+    position: {
+      x: 0,
+      z: 0,
+    },
+  },
 };
 
 let socket;
@@ -231,9 +237,6 @@ const updateFrame = (time) => {
     state.players[pId].displayObject.position.z = state.players[pId].position.z;
   }
 
-  const geometry = new THREE.SphereGeometry(5, 32, 32);
-  const material = new THREE.MeshLambertMaterial();
-  material.color = new THREE.Color(state.players[pId].color);
 };
 
 const setCamera = () => {
