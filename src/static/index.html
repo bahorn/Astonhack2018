@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+        <title>#astonhack</title>
+        <style>
+body { margin: 0; }
+canvas { width: 100%; height: 100% }
+#info {
+	position: absolute;
+	top: 10px;
+	width: 100%;
+	text-align: center;
+	z-index: 100;
+	display:block;
+}
+        </style>
+    </head>
+    <body>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/static/js/three.js"></script>
+        <script src="/static/js/postprocessing/EffectComposer.js"></script>
+		<script src="/static/js/postprocessing/RenderPass.js"></script>
+        <script src="/static/js/postprocessing/ShaderPass.js"></script>
+		<script src="/static/js/postprocessing/UnrealBloomPass.js"></script>
+		<script src="/static/js/shaders/CopyShader.js"></script>
+        <script src="/static/js/shaders/LuminosityHighPassShader.js"></script>
+        <script src="/static/js/controls/OrbitControls.js"></script>
+        <script src="/static/src/game.js"></script>
+        <div id="info">Dinosaurs: 0 | Unicorns: 0</div>
+    </body>
+</html>
