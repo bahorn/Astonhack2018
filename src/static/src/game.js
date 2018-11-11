@@ -21,8 +21,8 @@ let state = {
   },
   players: {},
   scores: {
-    dinosaurs: 5,
-    unicorns: 10,
+    dinosaurs: 0,
+    unicorns: 0,
   },
 };
 
@@ -168,6 +168,14 @@ const setupObjects = () => {
   const obj = new THREE.Mesh(geometry, material);
   obj.position.y = -1;
   scene.add(obj);
+  /* check point */
+
+  const goalGeometry = new THREE.SphereGeometry(5, 32, 32);
+  const obj2 = new THREE.Mesh(goalGeometry, material);
+  scene.add(obj2);
+  obj2.position.x = state.point.position.x;
+  obj2.position.z = state.point.position.z;
+  state.point.displayObject = obj2;
 };
 
 const updateFrame = (time) => {
@@ -222,6 +230,10 @@ const updateFrame = (time) => {
     state.players[pId].displayObject.position.y = state.players[pId].score * 0.1 + 1;
     state.players[pId].displayObject.position.z = state.players[pId].position.z;
   }
+
+  const geometry = new THREE.SphereGeometry(5, 32, 32);
+  const material = new THREE.MeshLambertMaterial();
+  material.color = new THREE.Color(state.players[pId].color);
 };
 
 const setCamera = () => {

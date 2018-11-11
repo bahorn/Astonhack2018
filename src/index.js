@@ -9,6 +9,16 @@ const game = require('./game');
 
 const state = {
   players: {},
+  score: {
+    dinosaurs: 0,
+    unicorns: 0,
+  },
+  point: {
+    position: {
+      x: 0,
+      z: 0,
+    },
+  },
 };
 
 app.use('/static', express.static('src/static'));
@@ -47,6 +57,6 @@ io.on('connection', (socket) => {
   });
 });
 
-http.listen(3000, () => {
+http.listen(3000, '0.0.0.0', () => {
   console.log('listening on *:3000');
 });
